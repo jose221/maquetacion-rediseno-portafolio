@@ -10,7 +10,7 @@ const webp = require('gulp-webp');
 const del = require('del');
 const rev = require('gulp-rev');
 const extend = require('gulp-extend');
-
+const htmlmin = require('gulp-htmlmin');
 var configuration = {
     paths: {
         src: {
@@ -28,7 +28,17 @@ var configuration = {
 
     /* JS base de todo el proyecto */
     files_to_concatenate: [
-
+        {
+            bundle_name: '/index.js',
+            bundle_path: './src/js',
+            src: [
+                './build/js/libs/alpine-intersect.js',
+                './build/js/libs/alpinejs.js',
+                './build/js/libs/HttpClient.js',
+                './build/js/libs/validation.js',
+                './build/js/app.js',
+            ]
+        }
 
     ]
 
@@ -130,8 +140,9 @@ function css() {
 
 function watch() {
     gulp.watch(configuration.paths.src.img, images);
+    gulp.watch(configuration.paths.src, gulp.series(htmlMinify,moveFiles));
 
-    gulp.watch(configuration.paths.src.js, gulp.series(scripts, manifest));
+    gulp.watch(configuration.paths.src.js, gulp.series(scripts,bundles, manifest));
     gulp.watch(configuration.paths.src.scss, gulp.series(styles, manifest));
     gulp.watch("./build/css/**/*.css", gulp.series(css, manifest));
 }
@@ -148,6 +159,38 @@ async function cleanJsCSS() {
     del.sync('./src/tmp/**');
     del.sync('./src/rev-manifest.json');
 }
+function bundles() {
+    return merge(
+        configuration.files_to_concatenate.map(function (currentValue, index) {
+            del.sync(currentValue.bundle_path+currentValue.bundle_name);
+            return gulp.src(currentValue.src)
+                .pipe(uglify())
+                .pipe(concat(currentValue.bundle_name))
+                .pipe(rename({ suffix: '.min' }))
+                //.pipe(
+                //  babel({
+                //     presets: [['@babel/preset-env', {modules: false}]],
+                //})
+                //)
+                //.pipe(rev())
+                .pipe(gulp.dest(currentValue.bundle_path))
 
-exports.live = gulp.series(cleanJsCSS, images, productionStyles, productionScripts, css, manifest);
-exports.default = gulp.series(cleanJsCSS, images, styles, scripts,  css, manifest, watch);
+                ;
+        })
+    );
+}
+function htmlMinify(){
+    return gulp.src(['./build/*.html','./build/*.php'])
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            ignoreCustomFragments: [ /<%[\s\S]*?%>/, /<\?[=|php]?[\s\S]*?\?>/ ]
+        }))
+        .pipe(gulp.dest('./src'));
+}
+function moveFiles(){
+    return gulp.src(['./build/lang/*.php'])
+        .pipe(gulp.dest('./src/lang'));
+}
+
+exports.live = gulp.series(cleanJsCSS,htmlMinify,moveFiles, images, productionStyles, productionScripts,bundles, css, manifest);
+exports.default = gulp.series(cleanJsCSS,htmlMinify, moveFiles, images, styles, scripts,bundles,  css, manifest, watch);
