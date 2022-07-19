@@ -34,7 +34,7 @@ function _translate($word){
     <meta name="keywords" content="jose angel alvarado gonzalez, José Ángel Alvarado González, Desarrollador web, freelancer jose angel, jose angel alvarado gonzalez cancun,+José Ángel Alvarado González Cancún">
     <!--styles-->
     <!--links-->
-    <link rel="stylesheet preload" href="css/index.min.css?v=0.2.8"  as="style" type="text/css">
+    <link rel="stylesheet preload" href="css/index.min.css?v=1.0.1"  as="style" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://jose.alvarado.herandro.com.mx/" crossorigin>
     <link rel="preconnect" href="https://kit.fontawesome.com/" crossorigin>
@@ -90,22 +90,22 @@ function _translate($word){
                 </div>
                 <ul>
                     <li>
-                        <a alt="home" href="#home-section"><span class="nav-text"><?=_translate('Inicio')?></span></a>
+                        <a alt="home" close-btn=".navbar-mobile" href="#home-section"><span class="nav-text"><?=_translate('Inicio')?></span></a>
                     </li>
                     <li>
-                        <a alt="about us" href="#about-section">  <span class="nav-text"><?=_translate('Acerca de')?></span></a>
+                        <a alt="about us" close-btn=".navbar-mobile" href="#about-section">  <span class="nav-text"><?=_translate('Acerca de')?></span></a>
                     </li>
                     <li>
-                        <a alt="my knowledges" href="#knowledges-section"> <span class="nav-text"><?=_translate('Mis conocimientos')?></span></a>
+                        <a alt="my knowledges" close-btn=".navbar-mobile" href="#knowledges-section"> <span class="nav-text"><?=_translate('Mis conocimientos')?></span></a>
                     </li>
                     <li>
-                        <a alt="my abilities" class="nav-link active" href="#abilities-section"> <span class="nav-text"><?=_translate('mis habilidades')?></span></a>
+                        <a alt="my abilities" close-btn=".navbar-mobile" class="nav-link active" href="#abilities-section"> <span class="nav-text"><?=_translate('mis habilidades')?></span></a>
                     </li>
                     <li>
-                        <a alt="professional experience" href="#bussiness-section"><span class="nav-text"> <?=_translate("Mi Portafolio")?></span></a>
+                        <a alt="professional experience" close-btn=".navbar-mobile" href="#bussiness-section"><span class="nav-text"> <?=_translate("Mi Portafolio")?></span></a>
                     </li>
                     <li>
-                        <a alt="contact" href="#contact-section"> <span class="nav-text"><?=_translate("Contacto")?></span></a>
+                        <a alt="contact" close-btn=".navbar-mobile" href="#contact-section"> <span class="nav-text"><?=_translate("Contacto")?></span></a>
                     </li>
                     <li>
                         <a alt="contact" class="translate-btn" href="?lang=<?=($lang == 'es')? 'en': 'es'?>"><i class="fas fa-globe"></i> <span class="nav-text"><?=_translate(($lang))?></span></a>
@@ -159,9 +159,9 @@ function _translate($word){
                         <li><i class="fas fa-globe-americas"></i> <span x-text="myPerfil.nationality"></span></li>
                     </ul>
                     <div class="count-experiences">
-                        <p>30+<span><?=_translate("proyectos")?></span></p>
+                        <!--<p>30+<span><?=_translate("proyectos")?></span></p>
                         <p>5+<span><?=_translate("años")?></span></p>
-                        <p>5+<span><?=_translate("empresas")?></span></p>
+                        <p>5+<span><?=_translate("empresas")?></span></p>-->
 
                     </div>
                     <div class="action-footer-user">
@@ -173,7 +173,7 @@ function _translate($word){
     </section>
     <!--end section information-->
     <!--section my knowledges-->
-    <section id="knowledges-section" class="knowledges-user-section -bg-blue" x-data="myKnowledges" x-intersect.once="geMyKnowledges()">
+    <section id="knowledges-section" class="knowledges-user-section -bg-blue" x-intersect.once="geMyKnowledges()">
         <div class="container" x-show="myKnowledges_section" >
             <div class="section-header -white">
                 <p class="-title" title><?=_translate("Mis conocimientos")?></p>
@@ -200,7 +200,7 @@ function _translate($word){
     </section>
     <!--end section my knowledges-->
     <!--section my abilities-->
-    <section id="abilities-section" class="abilities-user-section container" x-data="portfolioCategories" x-intersect.once="getPortfolioCategories()" >
+    <section id="abilities-section" class="abilities-user-section container" x-intersect.once="getPortfolioCategories()" >
        <div x-show="portfolioCategories_section">
            <div class="section-header">
                <p class="-title"><?=_translate("mis habilidades")?></p>
@@ -244,7 +244,7 @@ function _translate($word){
                 <p class="-title"><?=_translate("Empresas desarrollando")?></p>
                 <p class="-description"> <?=_translate("Experiencia trabajando en diferentes empresas y proyectos nacionales e internacionales")?></p>
             </div>
-            <div class="row" x-data="professionalProjects" x-intersect.once="getProfessionalProjects()">
+            <div class="row" x-intersect.once="getProfessionalProjects()">
                 <template x-for="professionalProject in professionalProjects">
                     <div class="-pe-auto " @click="professionalProject.show = !professionalProject.show">
                         <img width="100" height="120" :src="getImage(professionalProject.image_path)" :alt="professionalProject.company" :title="professionalProject.company" loading="lazy">
@@ -286,40 +286,38 @@ function _translate($word){
     <!--section contact us-->
     <section id="contact-section" class="contact-user-section -bg-blue">
 
-        <form id="contact-form">
-            <div class="container">
-                <div class="section-header -white">
-                    <p class="-title"><?=_translate("Contacto")?></p>
-                    <p class="-description"> <?=_translate("Puedes contactarme enviandome un mensaje")?></p>
+        <form class="container" id="contact-form">
+            <div class="section-header -white">
+                <p class="-title"><?=_translate("Contacto")?></p>
+                <p class="-description"> <?=_translate("Puedes contactarme enviandome un mensaje")?></p>
+            </div>
+            <div class="row">
+                <div class="c-6">
+                    <input required="true" class="form-control" data-invalid="name-required-invalid" aria-label="name user" id="name" name="name" required="" type="text" placeholder="<?=_translate("Nombre")?>">
+                    <div id="name-required-invalid" class="invalid-feedback pl-2">
+                        ¡Por favor escriba su nombre completo!
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="c-6">
-                        <input required="true" class="form-control" data-invalid="name-required-invalid" aria-label="name user" id="name" name="name" required="" type="text" placeholder="<?=_translate("Nombre")?>">
-                        <div id="name-required-invalid" class="invalid-feedback pl-2">
-                            ¡Por favor escriba su nombre completo!
-                        </div>
+                <div class="c-6">
+                    <input required="true" data-invalid="phone-required-invalid" value="" class="form-control " min="8" max="12" id="phone" aria-label="phone user" name="phone" type="tel" placeholder="<?=_translate("Número telefónico")?>" required="required">
+                    <div id="phone-required-invalid" class="invalid-feedback pl-2">
+                        ¡Por favor escriba correctamente su número de teléfono!
                     </div>
-                    <div class="c-6">
-                        <input required="true" data-invalid="phone-required-invalid" value="" class="form-control " min="8" max="12" id="phone" aria-label="phone user" name="phone" type="tel" placeholder="<?=_translate("Número telefónico")?>" required="required">
-                        <div id="phone-required-invalid" class="invalid-feedback pl-2">
-                            ¡Por favor escriba correctamente su número de teléfono!
-                        </div>
+                </div>
+                <div class="c-12">
+                    <input required="true" data-invalid="email-required-invalid" value="" class="form-control  " id="email" aria-label="email user" name="email" type="email" placeholder="<?=_translate("Email")?>" required="required">
+                    <div id="email-required-invalid" class="invalid-feedback pl-2">
+                        ¡Por favor escriba correctamente su correo!
                     </div>
-                    <div class="c-12">
-                        <input required="true" data-invalid="email-required-invalid" value="" class="form-control  " id="email" aria-label="email user" name="email" type="email" placeholder="<?=_translate("Email")?>" required="required">
-                        <div id="email-required-invalid" class="invalid-feedback pl-2">
-                            ¡Por favor escriba correctamente su correo!
-                        </div>
+                </div>
+                <div class="c-12">
+                    <textarea required="true" data-invalid="message-required-invalid" class="form-control  " name="message" aria-label="message user" id="message" rows="5" cols="5" placeholder="<?=_translate("Mensaje")?>" required="required"></textarea>
+                    <div id="message-required-invalid" class="invalid-feedback pl-2">
+                        ¡Por favor escriba un mensaje!
                     </div>
-                    <div class="c-12">
-                        <textarea required="true" data-invalid="message-required-invalid" class="form-control  " name="message" aria-label="message user" id="message" rows="5" cols="5" placeholder="<?=_translate("Mensaje")?>" required="required"></textarea>
-                        <div id="message-required-invalid" class="invalid-feedback pl-2">
-                            ¡Por favor escriba un mensaje!
-                        </div>
-                    </div>
-                    <div class="c-12 -d-flex -justify-content-center -align-items-center">
-                        <button class="btn-portfolio -white "> <?=_translate("Envíar mensaje")?> </button>
-                    </div>
+                </div>
+                <div class="c-12 -d-flex -justify-content-center -align-items-center">
+                    <button class="btn-portfolio -white "> <?=_translate("Envíar mensaje")?> </button>
                 </div>
             </div>
         </form>
@@ -399,8 +397,9 @@ function _translate($word){
             </div>
         </div>
     </div>
-    <script src="https://kit.fontawesome.com/2c9fd591be.js" crossorigin="anonymous" defer></script>
-    <script defer  src="js/globals.min.js?v=0.2.8" ></script>
-    <script src="js/index.min.js?v=0.2.8" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
+    <script src="https://kit.fontawesome.com/2c9fd591be.js" crossorigin="anonymous" async></script>
+    <script async  src="js/globals.min.js?v=1.0.1" ></script>
+    <script src="js/index.min.js?v=1.0.1" async></script>
 </body>
 </html>

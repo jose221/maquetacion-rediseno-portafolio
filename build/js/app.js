@@ -1,10 +1,30 @@
+
+function getData (){
+   // let new_data = JSON.parse(localStorage.getItem("data"))
+    let new_data = JSON.parse(sessionStorage.getItem("data"));
+    return  new_data || {};
+};
+const headers = {
+    "Content-Type": "application/json",
+        "Accept": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRF-TOKEN": "{{csrf_token()}}"
+}
 //const urlApi="http://127.0.0.1:8000";
-const urlApi="https://jose.alvarado.herandro.com.mx";
-let data = {};
-let lang = 'en';
+const urlApi="https://admin.herandro.com.mx";
+let lang = document.querySelector("html").getAttribute("lang");
+let data = getData();
+//fuargar en localstorage function
+async function saveData(new_data){
+    sessionStorage.setItem("data", JSON.stringify(new_data));
+    sessionStorage.setItem("lang", lang);
+    //localStorage.setItem("data", JSON.stringify(new_data));
+}
 document.addEventListener('alpine:init',   () => {
+    let old_lang = sessionStorage.getItem("lang");
     let httpClient = new HttpClient({
-        baseURL:urlApi+'/api/myportfolio/'
+        baseURL:urlApi+'/api/myportfolio/',
+        headers: headers
     });
     Alpine.data('myPerfil', () => ({
         myPerfil: {},
@@ -19,17 +39,59 @@ document.addEventListener('alpine:init',   () => {
         async init() {
             let res = data.myPerfil;
             let res2 = data.myContacts;
-            if(!res){
+            if(!res || old_lang != lang){
                 res = await httpClient.get(`myperfil/${lang}`);
                 data.myPerfil = res;
             }
-            if(!res2) {
+            if(!res2 || old_lang != lang) {
                 res2 = await httpClient.get(`mycontacts/${lang}`);
                 data.myContacts = res2;
             }
-
+            saveData(data);
             this.myContacts = res2;
             this.myPerfil = res;
+        },
+        //myKnowledges
+        myKnowledges: {},
+        myKnowledges_section: false,
+        async geMyKnowledges() {
+            let res = data.myKnowledges;
+            if(!res || old_lang != lang) {
+                res = await httpClient.get(`myknowledges/${lang}`);
+                data.myKnowledges = res;
+            }
+
+            this.myKnowledges = res;
+            this.myKnowledges_section = true;
+            saveData(data);
+        },
+        // portfolioCategories
+        portfolioCategories: {},
+        portfolioCategories_section: false,
+        async getPortfolioCategories() {
+            let res = data.portfolioCategories;
+            if(!res || old_lang != lang) {
+                res = await httpClient.get(`portfoliocategories/${lang}`);
+                data.portfolioCategories = res;
+            }
+
+            this.portfolioCategories = await res;
+            this.portfolioCategories_section = true;
+            saveData(data);
+        },
+        //professionalProjects
+        professionalProjects: [],
+        professionalProjects_section: false,
+        async getProfessionalProjects() {
+            let res = data.professionalProjects;
+            if(!res || old_lang != lang) {
+                res = await httpClient.get(`professionalprojects/${lang}`);
+                data.professionalProjects = res;
+            }
+
+            this.professionalProjects = await res;
+            this.professionalProjects_section = true;
+            saveData(data);
         },
     }))
     /**Alpine.data('myContacts', () => ({
@@ -44,50 +106,6 @@ document.addEventListener('alpine:init',   () => {
             this.myContacts = res;
         },
     }))**/
-
-    Alpine.data('myKnowledges', () => ({
-        myKnowledges: {},
-        myKnowledges_section: false,
-        async geMyKnowledges() {
-            let res = data.myKnowledges;
-            if(!res) {
-                res = await httpClient.get(`myknowledges/${lang}`);
-                data.myKnowledges = res;
-            }
-
-            this.myKnowledges = res;
-            this.myKnowledges_section = true;
-        },
-    }))
-    Alpine.data('portfolioCategories', () => ({
-        portfolioCategories: {},
-        portfolioCategories_section: false,
-        async getPortfolioCategories() {
-            let res = data.portfolioCategories;
-            console.log(res)
-            if(!res) {
-                res = await httpClient.get(`portfoliocategories/${lang}`);
-                data.portfolioCategories = res;
-            }
-
-            this.portfolioCategories = await res;
-            this.portfolioCategories_section = true;
-        },
-    }))
-    Alpine.data('professionalProjects', () => ({
-        professionalProjects: [],
-        professionalProjects_section: false,
-        async getProfessionalProjects() {
-            let res = data.professionalProjects;
-            if(!res) {
-                res = await httpClient.get(`professionalprojects/${lang}`);
-                data.professionalProjects = res;
-            }
-
-            this.professionalProjects = await res;
-            this.professionalProjects_section = true;
-        },
-    }))
 })
 
 /**observable***/
@@ -109,7 +127,7 @@ if(typeof IntersectionObserver !== "undefined"){
 
                 let lazyImage = entry.target;
                 if(lazyImage.getAttribute("data-src")) lazyImage.src = lazyImage.getAttribute("data-src");
-                console.log(lazyImage)
+
                 //lazyImage.classList.remove("lazy");
                 imgObserver.unobserve(entry.target);
             }
@@ -148,7 +166,26 @@ if(typeof IntersectionObserver !== "undefined"){
 }
 let validation = new Validation("#contact-form");
 document.querySelector("#contact-form").addEventListener("submit", function (e){
-    e.preventDefault()
-    console.log(validation.isValid())
-});
 
+
+    e.preventDefault()
+    const data = new FormData(e.target);
+
+    const body = Object.fromEntries(data.entries());
+    if(validation.isValid()){
+       {
+           let httpClient = new HttpClient({
+               baseURL:urlApi+'/api/myportfolio/',
+               headers: headers
+           });
+           httpClient.post(`message/send/${lang}`, body).then(function (res){
+               Swal.fire({
+                   icon: (res.status == 201) ? 'success' : 'error',
+                   title: res.message,
+                   showConfirmButton: false,
+                   timer: 1500
+               })
+           })
+        }
+    }
+});
