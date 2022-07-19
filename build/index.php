@@ -135,7 +135,7 @@ function _translate($word){
                 </div>
                 <a class="btn-portfolio" href="#"><?=_translate("VER MI PORTAFOLIO")?></a>
             </div>
-            <img alt="avatar" width="1022" height="1300" :src="getImage(myPerfil.header_image_path)">
+            <img lazy alt="avatar" mobile-none width="1022" height="1300" :data-src="getImage(myPerfil.header_image_path)">
         </div>
     </header>
     <!--end head-->
@@ -145,7 +145,7 @@ function _translate($word){
             <p class="-title"><?=_translate("Acerca de")?></p>
         </div>
         <div class="row" x-show="myinformation_section" x-transition.delay.150ms>
-            <img width="100%" height="100%" alt="jose angel alvarado gonzalez" :src="myinformation_section && getImage(myPerfil.my_perfil)">
+            <img lazy width="100%" height="100%" alt="jose angel alvarado gonzalez" :data-src="myinformation_section && getImage(myPerfil.my_perfil)">
             <div>
                 <h2>
                     <?=_translate("hello")?>
@@ -183,7 +183,7 @@ function _translate($word){
                 <template x-for="myKnowledge in myKnowledges">
                     <div>
                         <div class="item-header ">
-                            <img width="100%" height="100%" class="card-img-top img-circle" :src="myKnowledges_section && getImage(myKnowledge.icon_path)" :alt="myKnowledge.title" loading="lazy">
+                            <img lazy width="100%" height="100%" class="card-img-top img-circle" :data-src="myKnowledges_section && getImage(myKnowledge.icon_path)" :alt="myKnowledge.title" loading="lazy">
                         </div>
                         <div class="item-content">
                             <p class="title-item" x-text="myKnowledge.title">
@@ -212,7 +212,7 @@ function _translate($word){
                    <div class="row">
                        <template x-for="portfolio in category.portfolios">
                            <div :class="portfolio.show ? 'btn-tooltip' : 'btn-tooltip '" @click="portfolio.show = !portfolio.show">
-                               <img width="100" height="120" :src="getImage(portfolio.icon_path)" data-bs-toggle="tooltip" data-bs-placement="top" :title="portfolio.title" :alt="portfolio.title" loading="lazy">
+                               <img width="100" height="120" lazy :data-src="getImage(portfolio.icon_path)" data-bs-toggle="tooltip" data-bs-placement="top" :title="portfolio.title" :alt="portfolio.title" loading="lazy">
                                <div :class="portfolio.show ? 'tooltip btn-tooltip-close show' : 'tooltip btn-tooltip-close'">
                                    <div class="content-tooltip">
                                        <div class="header-tooltip">
@@ -247,11 +247,11 @@ function _translate($word){
             <div class="row" x-intersect.once="getProfessionalProjects()">
                 <template x-for="professionalProject in professionalProjects">
                     <div class="-pe-auto " @click="professionalProject.show = !professionalProject.show">
-                        <img width="100" height="120" :src="getImage(professionalProject.image_path)" :alt="professionalProject.company" :title="professionalProject.company" loading="lazy">
+                        <img lazy width="100" height="120" :data-src="getImage(professionalProject.image_path)" :alt="professionalProject.company" :title="professionalProject.company" loading="lazy">
                         <div :class="professionalProject.show ? 'modal show':'modal'">
                             <div class="modal-dialog">
                                 <div class="modal-header">
-                                    <img class="img-header" height="120" width="100" :src="getImage(professionalProject.image_path)" loading="lazy" :alt="professionalProject.company" :title="professionalProject.company">
+                                    <img lazy class="img-header" height="120" width="100" :data-src="getImage(professionalProject.image_path)" loading="lazy" :alt="professionalProject.company" :title="professionalProject.company">
                                     <p CLASS="name-company-modal" x-text="professionalProject.company"></p>
                                 </div>
                                 <div class="modal-body">
@@ -264,7 +264,7 @@ function _translate($word){
                                     <div class="text-justify -mt-1">
                                         <div class="list-badges">
                                             <template x-for="portfolio in professionalProject.portfolio">
-                                                <span class="badge rounded-pill outline-badge mt-2"><img :src="getImage(portfolio.icon_path)" width="13" height="10" loading="lazy"> <span x-text="portfolio.title_en"></span></span>
+                                                <span class="badge rounded-pill outline-badge mt-2"><img lazy :data-src="getImage(portfolio.icon_path)" width="13" height="10" loading="lazy"> <span x-text="portfolio.title_en"></span></span>
                                             </template>
                                         </div>
                                         <div class="-mt-2 info-job" x-html="professionalProject.description">
@@ -326,7 +326,7 @@ function _translate($word){
     <!--footer-->
     <footer id="footer-info">
         <div class="container">
-            <img width="90" height="90" :src="getImage(myPerfil.slogan)" alt="Card image cap" loading="lazy">
+            <img lazy width="90" height="90" :data-src="getImage(myPerfil.slogan)" alt="Card image cap" loading="lazy">
             <div class="-d-flex -justify-content-center" loading="lazy">
                 <template x-for="contact in myContacts">
                     <a class="btn btn-contact " :title="contact.name" :href="contact.url_path" :aria-label="contact.icon_path" target="_blank" rel="noreferrer noopener">

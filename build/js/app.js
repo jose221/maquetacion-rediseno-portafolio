@@ -50,6 +50,8 @@ document.addEventListener('alpine:init',   () => {
             saveData(data);
             this.myContacts = res2;
             this.myPerfil = res;
+
+            createLazy();
         },
         //myKnowledges
         myKnowledges: {},
@@ -64,6 +66,8 @@ document.addEventListener('alpine:init',   () => {
             this.myKnowledges = res;
             this.myKnowledges_section = true;
             saveData(data);
+
+            createLazy();
         },
         // portfolioCategories
         portfolioCategories: {},
@@ -78,6 +82,7 @@ document.addEventListener('alpine:init',   () => {
             this.portfolioCategories = await res;
             this.portfolioCategories_section = true;
             saveData(data);
+            createLazy();
         },
         //professionalProjects
         professionalProjects: [],
@@ -92,6 +97,8 @@ document.addEventListener('alpine:init',   () => {
             this.professionalProjects = await res;
             this.professionalProjects_section = true;
             saveData(data);
+
+            createLazy();
         },
     }))
     /**Alpine.data('myContacts', () => ({
@@ -109,10 +116,22 @@ document.addEventListener('alpine:init',   () => {
 })
 
 /**observable***/
-var images = document.querySelectorAll("[lazy]");
-var background_images = document.querySelectorAll("[lazy-background]")
-var imgIntersectionObserver =  null;
 
+var imgIntersectionObserver =  null;
+function  createLazy(){
+   setTimeout(function (){
+       var images = document.querySelectorAll("[lazy]");
+       var background_images = document.querySelectorAll("[lazy-background]")
+
+       images.forEach((img) => {
+           imgIntersectionObserver.observe(img);
+       });
+
+       background_images.forEach((img) => {
+           backgroundImgObserver.observe(img);
+       });
+   }, 100)
+}
 if(typeof IntersectionObserver !== "undefined"){
     var imgOptions = {
         threshold: 0.2
@@ -126,9 +145,12 @@ if(typeof IntersectionObserver !== "undefined"){
             else{
 
                 let lazyImage = entry.target;
-                if(lazyImage.getAttribute("data-src")) lazyImage.src = lazyImage.getAttribute("data-src");
+                if (!lazyImage.getAttribute('mobile-none')){
+                    if(lazyImage.getAttribute("data-src")) lazyImage.src = lazyImage.getAttribute("data-src");
+                }
 
                 //lazyImage.classList.remove("lazy");
+                lazyImage.removeAttribute("lazy");
                 imgObserver.unobserve(entry.target);
             }
         });
@@ -142,18 +164,13 @@ if(typeof IntersectionObserver !== "undefined"){
             let lazyImage = entry.target;
             lazyImage.style.backgroundImage = 'url(' + lazyImage.getAttribute("data-src") + ')';
             //lazyImage.classList.remove("lazy-background");
+            lazyImage.removeAttribute("lazy");
             bimgObserver.unobserve(entry.target);
         });
     }, imgOptions);
 
 //instancia de imagenes
-    images.forEach((img) => {
-        imgIntersectionObserver.observe(img);
-    });
-
-    background_images.forEach((img) => {
-        backgroundImgObserver.observe(img);
-    });
+    createLazy();
 }else{
     images.forEach((img) => {
         img.src = img.getAttribute("data-src");
