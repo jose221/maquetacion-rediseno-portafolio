@@ -130,7 +130,7 @@ function  createLazy(){
        background_images.forEach((img) => {
            backgroundImgObserver.observe(img);
        });
-   }, 100)
+   }, 500)
 }
 if(typeof IntersectionObserver !== "undefined"){
     var imgOptions = {
@@ -150,7 +150,7 @@ if(typeof IntersectionObserver !== "undefined"){
                 }
 
                 //lazyImage.classList.remove("lazy");
-                lazyImage.removeAttribute("lazy");
+                //lazyImage.removeAttribute("lazy");
                 imgObserver.unobserve(entry.target);
             }
         });
@@ -164,7 +164,7 @@ if(typeof IntersectionObserver !== "undefined"){
             let lazyImage = entry.target;
             lazyImage.style.backgroundImage = 'url(' + lazyImage.getAttribute("data-src") + ')';
             //lazyImage.classList.remove("lazy-background");
-            lazyImage.removeAttribute("lazy");
+            //lazyImage.removeAttribute("lazy");
             bimgObserver.unobserve(entry.target);
         });
     }, imgOptions);

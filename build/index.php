@@ -133,7 +133,7 @@ function _translate($word){
                     <h2 x-text="myPerfil.name"></h2>
                     <h3 x-text="myPerfil.header_text"></h3>
                 </div>
-                <a class="btn-portfolio" href="#"><?=_translate("VER MI PORTAFOLIO")?></a>
+                <a class="btn-portfolio" href="#bussiness-section"><?=_translate("VER MI PORTAFOLIO")?></a>
             </div>
             <img lazy alt="avatar" mobile-none width="1022" height="1300" :data-src="getImage(myPerfil.header_image_path)">
         </div>
@@ -342,7 +342,7 @@ function _translate($word){
     <div x-show="!myPerfil.id" >
         <div class="splash-loading">
             <div class="content-splash">
-                <img width="90" height="90" lazy data-src="img/banner-logo.svg" alt="Card image cap">
+                <img width="90" height="90" src="img/banner-logo.svg" alt="Card image cap">
                 <p><?=_translate("Cargando Información")?>...</p>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgba(255, 255, 255, 0); display: block;" width="54px" height="54px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
                     <g transform="rotate(0 50 50)">
