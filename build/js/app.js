@@ -1,4 +1,11 @@
 
+
+//service woker
+if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+};
+
+//init app
 function getData (){
    // let new_data = JSON.parse(localStorage.getItem("data"))
     let new_data = JSON.parse(sessionStorage.getItem("data"));
@@ -21,6 +28,7 @@ async function saveData(new_data){
     //localStorage.setItem("data", JSON.stringify(new_data));
 }
 document.addEventListener('alpine:init',   () => {
+    testInit();
     let old_lang = sessionStorage.getItem("lang");
     let httpClient = new HttpClient({
         baseURL:urlApi+'/api/myportfolio/',
@@ -146,10 +154,15 @@ if(typeof IntersectionObserver !== "undefined"){
 
                 let lazyImage = entry.target;
                 if (!lazyImage.getAttribute('mobile-none')){
-                    if(lazyImage.getAttribute("data-src")) lazyImage.src = lazyImage.getAttribute("data-src");
+                    if(lazyImage.getAttribute("data-src")) {
+                        lazyImage.src = lazyImage.getAttribute("data-src")
+                        /**caches.open("images-v1").then((cache) => {
+                            return cache.addAll([lazyImage.src]);
+                        })**/
+                    };
                 }
 
-                //lazyImage.classList.remove("lazy");
+                lazyImage.classList.remove("lazy");
                 //lazyImage.removeAttribute("lazy");
                 imgObserver.unobserve(entry.target);
             }
@@ -163,7 +176,7 @@ if(typeof IntersectionObserver !== "undefined"){
 
             let lazyImage = entry.target;
             lazyImage.style.backgroundImage = 'url(' + lazyImage.getAttribute("data-src") + ')';
-            //lazyImage.classList.remove("lazy-background");
+            lazyImage.classList.remove("lazy-background");
             //lazyImage.removeAttribute("lazy");
             bimgObserver.unobserve(entry.target);
         });

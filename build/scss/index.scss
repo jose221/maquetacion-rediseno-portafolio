@@ -83,6 +83,7 @@ header{
         //grid-template-columns: 4fr 8fr;
         grid-template-columns: 6fr 8fr;
         align-items: center;
+        grid-gap: 10px;
         @media screen and(max-width: 770px) {
             grid-template-columns: 1fr;
         }
@@ -500,5 +501,36 @@ section{
         }
     }
 
+}
+img.lazy {
+    position: relative;
+    text-indent: -10000px;
+}
+img.lazy:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(
+                    to right,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0.5) 50%,
+                    rgba(255, 255, 255, 0) 80%
+    ),
+    lightgray;
+    background-repeat: repeat-y;
+    background-size: 50px 500px;
+    background-position: 0 0;
+    animation: shine 1s infinite;
+    content: attr(alt);
+}
+
+@keyframes shine {
+    to {
+        background-position: 100% 0;
+    }
 }
 

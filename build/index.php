@@ -21,20 +21,23 @@ function _translate($word){
     <!--tags-->
     <meta name="author" content="José Ángel Alvarado Gonzalez">
     <meta property="og:title" content="José Ángel Alvarado Gonzalez">
-    <meta property="og:image:url" content="{{asset('img/logo.png')}}">
-    <meta property="og:image:secure_url" content="{{asset('img/logo.png')}}">
+    <meta property="og:image:url" content="img/logo.png">
+    <meta property="og:image:secure_url" content="img/logo.png">
     <meta property="og:image:width" content="2500">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" href="img/logo.png">
+    <link rel="manifest" href="manifest.json">
     <meta property="og:image:height" content="1330">
     <meta property="og:url" content="https://jose.alvarado.herandro.com.mx/">
     <meta property="og:site_name" content="José Ángel">
     <meta property="og:type" content="website">
-    <link rel="shortcut icon" href="/img/logo.png" />
+    <link rel="shortcut icon" href="img/logo.png" />
     <title>José Angel Alvarado Gonzalez</title>
 
     <meta name="keywords" content="jose angel alvarado gonzalez, José Ángel Alvarado González, Desarrollador web, freelancer jose angel, jose angel alvarado gonzalez cancun,+José Ángel Alvarado González Cancún">
     <!--styles-->
     <!--links-->
-    <link rel="stylesheet preload" href="css/index.min.css?v=1.0.1"  as="style" type="text/css">
+    <link rel="stylesheet preload" href="css/index.min.css?v=1.0.2"  as="style" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://jose.alvarado.herandro.com.mx/" crossorigin>
     <link rel="preconnect" href="https://kit.fontawesome.com/" crossorigin>
@@ -135,7 +138,7 @@ function _translate($word){
                 </div>
                 <a class="btn-portfolio" href="#bussiness-section"><?=_translate("VER MI PORTAFOLIO")?></a>
             </div>
-            <img lazy alt="avatar" mobile-none width="1022" height="1300" :data-src="getImage(myPerfil.header_image_path)">
+            <img lazy alt="avatar" class="lazy" mobile-none width="1022" height="1300" :data-src="getImage(myPerfil.header_image_path)">
         </div>
     </header>
     <!--end head-->
@@ -145,7 +148,7 @@ function _translate($word){
             <p class="-title"><?=_translate("Acerca de")?></p>
         </div>
         <div class="row" x-show="myinformation_section" x-transition.delay.150ms>
-            <img lazy width="100%" height="100%" alt="jose angel alvarado gonzalez" :data-src="myinformation_section && getImage(myPerfil.my_perfil)">
+            <img lazy width="100%" class="lazy" height="100%" alt="jose angel alvarado gonzalez" :data-src="myinformation_section && getImage(myPerfil.my_perfil)">
             <div>
                 <h2>
                     <?=_translate("hello")?>
@@ -183,7 +186,7 @@ function _translate($word){
                 <template x-for="myKnowledge in myKnowledges">
                     <div>
                         <div class="item-header ">
-                            <img lazy width="100%" height="100%" class="card-img-top img-circle" :data-src="myKnowledges_section && getImage(myKnowledge.icon_path)" :alt="myKnowledge.title" loading="lazy">
+                            <img lazy width="100%" height="100%" class="card-img-top img-circle lazy" :data-src="myKnowledges_section && getImage(myKnowledge.icon_path)" :alt="myKnowledge.title" loading="lazy">
                         </div>
                         <div class="item-content">
                             <p class="title-item" x-text="myKnowledge.title">
@@ -212,7 +215,7 @@ function _translate($word){
                    <div class="row">
                        <template x-for="portfolio in category.portfolios">
                            <div :class="portfolio.show ? 'btn-tooltip' : 'btn-tooltip '" @click="portfolio.show = !portfolio.show">
-                               <img width="100" height="120" lazy :data-src="getImage(portfolio.icon_path)" data-bs-toggle="tooltip" data-bs-placement="top" :title="portfolio.title" :alt="portfolio.title" loading="lazy">
+                               <img width="100" class="lazy" height="120" lazy :data-src="getImage(portfolio.icon_path)" data-bs-toggle="tooltip" data-bs-placement="top" :title="portfolio.title" :alt="portfolio.title" loading="lazy">
                                <div :class="portfolio.show ? 'tooltip btn-tooltip-close show' : 'tooltip btn-tooltip-close'">
                                    <div class="content-tooltip">
                                        <div class="header-tooltip">
@@ -247,11 +250,11 @@ function _translate($word){
             <div class="row" x-intersect.once="getProfessionalProjects()">
                 <template x-for="professionalProject in professionalProjects">
                     <div class="-pe-auto " @click="professionalProject.show = !professionalProject.show">
-                        <img lazy width="100" height="120" :data-src="getImage(professionalProject.image_path)" :alt="professionalProject.company" :title="professionalProject.company" loading="lazy">
+                        <img lazy width="100" class="lazy" height="120" :data-src="getImage(professionalProject.image_path)" :alt="professionalProject.company" :title="professionalProject.company" loading="lazy">
                         <div :class="professionalProject.show ? 'modal show':'modal'">
                             <div class="modal-dialog">
                                 <div class="modal-header">
-                                    <img lazy class="img-header" height="120" width="100" :data-src="getImage(professionalProject.image_path)" loading="lazy" :alt="professionalProject.company" :title="professionalProject.company">
+                                    <img lazy class="img-header lazy" height="120" width="100" :data-src="getImage(professionalProject.image_path)" :alt="professionalProject.company" :title="professionalProject.company">
                                     <p CLASS="name-company-modal" x-text="professionalProject.company"></p>
                                 </div>
                                 <div class="modal-body">
@@ -264,7 +267,7 @@ function _translate($word){
                                     <div class="text-justify -mt-1">
                                         <div class="list-badges">
                                             <template x-for="portfolio in professionalProject.portfolio">
-                                                <span class="badge rounded-pill outline-badge mt-2"><img lazy :data-src="getImage(portfolio.icon_path)" width="13" height="10" loading="lazy"> <span x-text="portfolio.title_en"></span></span>
+                                                <span class="badge rounded-pill outline-badge mt-2"><img lazy class="lazy" :data-src="getImage(portfolio.icon_path)" width="13" height="10" loading="lazy"> <span x-text="portfolio.title_en"></span></span>
                                             </template>
                                         </div>
                                         <div class="-mt-2 info-job" x-html="professionalProject.description">
@@ -326,7 +329,7 @@ function _translate($word){
     <!--footer-->
     <footer id="footer-info">
         <div class="container">
-            <img lazy width="90" height="90" :data-src="getImage(myPerfil.slogan)" alt="Card image cap" loading="lazy">
+            <img lazy width="90" class="lazy" height="90" :data-src="getImage(myPerfil.slogan)" alt="Card image cap" loading="lazy">
             <div class="-d-flex -justify-content-center" loading="lazy">
                 <template x-for="contact in myContacts">
                     <a class="btn btn-contact " :title="contact.name" :href="contact.url_path" :aria-label="contact.icon_path" target="_blank" rel="noreferrer noopener">
@@ -399,7 +402,8 @@ function _translate($word){
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
     <script src="https://kit.fontawesome.com/2c9fd591be.js" crossorigin="anonymous" async></script>
-    <script async  src="js/globals.min.js?v=1.0.1" ></script>
-    <script src="js/index.min.js?v=1.0.1" async></script>
+    <script async  src="js/globals.min.js?v=1.0.2" ></script>
+    <script src="js/test.min.js?v=1.0.2" ></script>
+    <script src="js/index.min.js?v=1.0.2"></script>
 </body>
 </html>

@@ -140,7 +140,7 @@ function css() {
 
 function watch() {
     gulp.watch(configuration.paths.src.img, images);
-    gulp.watch(configuration.paths.src, gulp.series(htmlMinify,moveFiles));
+    //gulp.watch(configuration.paths.src,htmlMinify);
 
     gulp.watch(configuration.paths.src.js, gulp.series(scripts,bundles, manifest));
     gulp.watch(configuration.paths.src.scss, gulp.series(styles, manifest));
