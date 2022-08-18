@@ -402,8 +402,7 @@ function _translate($word){
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" async></script>
     <script src="https://kit.fontawesome.com/2c9fd591be.js" crossorigin="anonymous" async></script>
-    <script async  src="js/globals.min.js?v=1.0.2" ></script>
-    <script src="js/test.min.js?v=1.0.2" ></script>
-    <script src="js/index.min.js?v=1.0.2"></script>
+    <script src="js/globals.min.js?v=1.0.2" async></script>
+    <script src="js/index.min.js?v=1.0.2" async></script>
 </body>
 </html>

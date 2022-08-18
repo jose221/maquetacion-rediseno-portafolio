@@ -28,7 +28,6 @@ async function saveData(new_data){
     //localStorage.setItem("data", JSON.stringify(new_data));
 }
 document.addEventListener('alpine:init',   () => {
-    testInit();
     let old_lang = sessionStorage.getItem("lang");
     let httpClient = new HttpClient({
         baseURL:urlApi+'/api/myportfolio/',

@@ -1,0 +1,39 @@
+{
+
+  "$schema": "http://json.schemastore.org/web-manifest",
+  "short_name": "Jose Angel",
+  "name": "Mi portafolio José Ángel Alvarado",
+  "description": "Cross-Platform Application Developer",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "img/logo.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/logo.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any"
+}
