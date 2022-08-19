@@ -502,11 +502,18 @@ section{
     }
 
 }
-img.lazy {
+[lazy], [lazy-background]{
+    opacity: 1;
+    transition: opacity 1s ease-in;
+    -webkit-transition: opacity 1s ease-in;
+    -moz-transition: opacity 1s ease-in;
+}
+img.lazy, img.lazy-background {
     position: relative;
     text-indent: -10000px;
+    opacity: 0;
 }
-img.lazy:after {
+/**img.lazy:after {
     display: block;
     position: absolute;
     top: 0;
@@ -526,7 +533,7 @@ img.lazy:after {
     background-position: 0 0;
     animation: shine 1s infinite;
     content: attr(alt);
-}
+}**/
 
 @keyframes shine {
     to {

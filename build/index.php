@@ -18,6 +18,20 @@ function _translate($word){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cross-Platform Application Developer">
+    <!--preconnected-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://kit.fontawesome.com/" crossorigin>
+    <link rel="preconnect" href="https://ka-f.fontawesome.com/" crossorigin>
+
+    <!--preload-->
+
+    <link rel="preload" href="css/index.min.css?v=1.0.2" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200;1,700&amp;display=swap" as="script">
+
+    <link rel="preload" href="//cdn.jsdelivr.net/npm/sweetalert2@11">
+
+
+    <link rel="preload" href="js/globals.min.js?v=1.0.2" as="script">
     <!--tags-->
     <meta name="author" content="José Ángel Alvarado Gonzalez">
     <meta property="og:title" content="José Ángel Alvarado Gonzalez">
@@ -37,13 +51,32 @@ function _translate($word){
     <meta name="keywords" content="jose angel alvarado gonzalez, José Ángel Alvarado González, Desarrollador web, freelancer jose angel, jose angel alvarado gonzalez cancun,+José Ángel Alvarado González Cancún">
     <!--styles-->
     <!--links-->
-    <link rel="stylesheet preload" href="css/index.min.css?v=1.0.2"  as="style" type="text/css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://jose.alvarado.herandro.com.mx/" crossorigin>
-    <link rel="preconnect" href="https://kit.fontawesome.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200;1,700&amp;display=swap" rel="preload">
+    <link rel="stylesheet" href="css/index.min.css?v=1.0.2">
     <!--preconnect-->
-
+    <script type="application/ld+json">
+        {
+            "@context": "http://www.schema.org",
+            "@type": "person",
+            "name": "José Angel Alvarado Gonzalez",
+            "jobTitle": "Cross-Platform Application Developer",
+            "url": "https://jose.alvarado.herandro.com.mx/",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Cancún",
+                "addressRegion": "Quintana Roo",
+                "postalCode": "77500",
+                "addressCountry": "México"
+            },
+            "email": "jose.alvarado220@hotmail.com",
+            "telephone": "9982132198",
+            "birthDate": "1999-25-04",
+            "sameAs": [
+                "https://web.facebook.com/joseangel.alvarado.735507",
+                "https://www.linkedin.com/in/jos%C3%A9-%C3%A1ngel-alvarado-gonzalez-677841220",
+                "https://jose.alvarado.herandro.com.mx/"
+            ]
+        }
+    </script>
 </head>
 <body x-data="myPerfil">
     <!--head-->
@@ -138,7 +171,7 @@ function _translate($word){
                 </div>
                 <a class="btn-portfolio" href="#bussiness-section"><?=_translate("VER MI PORTAFOLIO")?></a>
             </div>
-            <img lazy alt="avatar" class="lazy" mobile-none width="1022" height="1300" :data-src="getImage(myPerfil.header_image_path)">
+            <img lazy="{showMaxWidth:'900'}" alt="avatar" class="lazy" width="1022" height="1300" :data-src="getImage(myPerfil.header_image_path)">
         </div>
     </header>
     <!--end head-->

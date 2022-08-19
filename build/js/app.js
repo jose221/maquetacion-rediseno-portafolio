@@ -152,18 +152,35 @@ if(typeof IntersectionObserver !== "undefined"){
             else{
 
                 let lazyImage = entry.target;
-                if (!lazyImage.getAttribute('mobile-none')){
+
+
+                let options = {};
+                let valid = true;
+                if(lazyImage.getAttribute("lazy") != null){
+                    options = JSON.parse(JSON.stringify(lazyImage.getAttribute("lazy")))
+                }
+
+                if(options){
+                    if(options?.showMaxWidth && options?.showMaxWidth > screen.width){
+                        valid = false;
+                    }else{
+                        if(options?.showMinWidth && options?.showMinWidth < screen.width){
+                            valid = false;
+                        }
+                    }
+                }
+                if(valid){
                     if(lazyImage.getAttribute("data-src")) {
                         lazyImage.src = lazyImage.getAttribute("data-src")
                         /**caches.open("images-v1").then((cache) => {
                             return cache.addAll([lazyImage.src]);
                         })**/
                     };
-                }
 
-                lazyImage.classList.remove("lazy");
-                //lazyImage.removeAttribute("lazy");
-                imgObserver.unobserve(entry.target);
+                    lazyImage.classList.remove("lazy");
+                    //lazyImage.removeAttribute("lazy");
+                    imgObserver.unobserve(entry.target);
+                }
             }
         });
     }, imgOptions);
@@ -174,10 +191,27 @@ if(typeof IntersectionObserver !== "undefined"){
             if (!entry.isIntersecting) return;
 
             let lazyImage = entry.target;
-            lazyImage.style.backgroundImage = 'url(' + lazyImage.getAttribute("data-src") + ')';
-            lazyImage.classList.remove("lazy-background");
-            //lazyImage.removeAttribute("lazy");
-            bimgObserver.unobserve(entry.target);
+            let options = {};
+            let valid = true;
+            if(lazyImage.getAttribute("lazy") != null){
+                options = JSON.parse(JSON.stringify(lazyImage.getAttribute("lazy")))
+            }
+
+            if(options){
+                if(options?.showMaxWidth && options?.showMaxWidth > screen.width){
+                    valid = false;
+                }else{
+                    if(options?.showMinWidth && options?.showMinWidth < screen.width){
+                        valid = false;
+                    }
+                }
+            }
+            if(valid){
+                lazyImage.style.backgroundImage = 'url(' + lazyImage.getAttribute("data-src") + ')';
+                lazyImage.classList.remove("lazy-background");
+                //lazyImage.removeAttribute("lazy");
+                bimgObserver.unobserve(entry.target);
+            }
         });
     }, imgOptions);
 
