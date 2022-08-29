@@ -1,10 +1,5 @@
 
 
-//service woker
-if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js');
-};
-
 //init app
 function getData (){
    // let new_data = JSON.parse(localStorage.getItem("data"))
@@ -242,12 +237,11 @@ document.querySelector("#contact-form").addEventListener("submit", function (e){
                headers: headers
            });
            httpClient.post(`message/send/${lang}`, body).then(function (res){
-               Swal.fire({
-                   icon: (res.status == 201) ? 'success' : 'error',
-                   title: res.message,
-                   showConfirmButton: false,
-                   timer: 1500
-               })
+               if( (res.status == 201)){
+                   Alert.success(res.message,1500)
+               }else{
+                   Alert.error(res.message,1500)
+               }
            })
         }
     }
