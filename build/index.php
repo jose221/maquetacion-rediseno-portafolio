@@ -237,7 +237,7 @@ function _translate($word){
                <p class="-description"> <?=_translate("Buen manejo y conocimiento en las siguientes Tecnológias")?></p>
            </div>
            <template x-for="category in portfolioCategories">
-               <div class="item-abilities">
+               <div class="item-abilities container">
                    <p class="category-name" x-text="category.title"></p>
                    <div class="row">
                        <template x-for="portfolio in category.portfolios">

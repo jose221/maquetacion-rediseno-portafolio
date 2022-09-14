@@ -39,6 +39,7 @@ document.addEventListener('alpine:init',   () => {
             return url;
         },
         async init() {
+            console.time('Timer');
             let res = data.myPerfil;
             let res2 = data.myContacts;
             if(!res || old_lang != lang){
@@ -54,6 +55,9 @@ document.addEventListener('alpine:init',   () => {
             this.myPerfil = res;
 
             createLazy();
+            this.$nextTick(() => {
+                console.timeEnd('Timer')
+            })
         },
         //myKnowledges
         myKnowledges: {},

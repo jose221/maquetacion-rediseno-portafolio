@@ -216,14 +216,22 @@ header{
         margin: 35px 0 35px 0;
     }
     .row{
+        padding: 0 25px 0 25px;
         margin-top: 2rem;
         display: flex;
         grid-gap: 50px;
         justify-content: center;
         flex-wrap: wrap;
         .btn-tooltip{
-            flex: 0 0 auto;
-            @media screen and (max-width: 773px){
+            flex: 0 0 9%;
+            @media screen and (min-width: 1000px) and (max-width: 1260px){
+                padding: 0 15px 0 15px;
+                grid-gap: 10px;
+                width: 10.666667%;
+                //grid-gap: 30px;
+                //width: 10%;
+            }
+            @media screen and (min-width: 773px){
                 grid-gap: 30px;
                 width: 13.666667%;
             }
