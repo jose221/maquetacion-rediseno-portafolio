@@ -518,3 +518,113 @@ footer{
 ::-webkit-scrollbar-thumb:hover {
     background-color: #a8bbbf;
 }
+/**observer class**/
+[lazy-section]>[child-lazy-section]{
+    display: none;
+}
+.show-section{
+    display: block !important;
+}
+section{
+    min-height: 200px;
+}
+
+
+
+.into-slide {
+    position: relative;
+    display: inline-block;
+    animation: 2s ease-in-out infinite alternate swingParent;
+    /* just for styling purposes */
+    background: #c70039;
+    padding: 1rem;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+@keyframes swingParent {
+    from {
+        transform: translateX(0);
+        left: 0;
+    }
+    to {
+        left: 100%;
+        transform: translateX(-100%);
+    }
+}
+.zoom{
+    transition: transform .2s;
+    &:hover {
+        -ms-transform: scale(1.2); /* IE 9 */
+        -webkit-transform: scale(1.2); /* Safari 3-8 */
+        transform: scale(1.2);
+    }
+}
+.has-invalid{
+    .-invalid {
+        border: 1px solid #fd0400;
+        box-shadow: 0 0 5px #fd0400;
+
+    }
+}
+.invalid-feedback {
+    padding-left: 0.5rem;
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #cc6973;
+    &.show {
+        display: block;
+    }
+}
+.alert-tooltip{
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    -webkit-transition: opacity 1s ease-in;
+    -moz-transition: opacity 1s ease-in;
+    span{
+        font-weight: 600;
+        font-size: 12px;
+    }
+    &.show{
+        opacity: 1;
+    }
+    background-color: rgba(24, 24, 24);
+    &.success{
+        color: #155724;
+        background-color: rgb(212, 237, 218);
+    }
+    &.warning{
+        color: #856404;
+        background-color: rgb(255, 243, 205);
+    }
+    &.error{
+        color: #721c24;
+        background-color: rgb(248, 215, 218);
+    }
+    color: #fff;
+    position: sticky;
+    bottom: 10px;
+    border-radius: 5px;
+    left: 30px;
+    max-width: 300px;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    grid-gap: 10px;
+    @media screen and (max-width: 800px) {
+        max-width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 35px;
+        margin: 0 10px 0 10px;
+    }
+
+}
+.overflow-hidden{
+    overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
+}

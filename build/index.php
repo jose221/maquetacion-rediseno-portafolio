@@ -116,7 +116,7 @@ function _translate($word){
                    <button class="collapse-btn" data-target="#menuResponsive" aria-controls="menuResponsive" aria-expanded="false"><i class="fas fa-angle-down -ep-none"></i></button>
                </div>-->
                 <div class="nav-header">
-                    <img x-show="myPerfil.logo" x-transition.scale width="45" alt="img logo" height="40" :src="getImage(myPerfil.slogan)">
+                    <img x-show="myPerfil.logo" x-transition.scale width="45" alt="img logo" height="40" :src="getImage(myPerfil['slogan_'+language])">
                 </div>
                 <ul>
                     <li>
@@ -143,7 +143,7 @@ function _translate($word){
                 </ul>
                 <div class="nav-footer">
                     <template x-for="contact in myContacts">
-                        <a class="btn btn-contact" :title="contact.name" :href="contact.url_path" :aria-label="contact.icon_path" target="_blank" rel="noreferrer noopener">
+                        <a class="btn btn-contact" :title="contact['name_'+language]" :href="contact.url_path" :aria-label="contact.icon_path" target="_blank" rel="noreferrer noopener">
                             <i  :class="contact.icon_path" ></i>
                         </a>
                     </template>
@@ -154,14 +154,14 @@ function _translate($word){
             <div class="text-header">
                 <div class="list-contacts">
                     <template x-for="contact in myContacts">
-                        <a class="btn btn-contact" :title="contact.name" :href="contact.url_path" :aria-label="contact.icon_path" target="_blank" rel="noreferrer noopener">
+                        <a class="btn btn-contact" :title="contact['name_'+language]" :href="contact.url_path" :aria-label="contact.icon_path" target="_blank" rel="noreferrer noopener">
                             <i  :class="contact.icon_path" ></i>
                         </a>
                     </template>
                 </div>
                 <div>
                     <h2 x-text="myPerfil.name"></h2>
-                    <h3 x-text="myPerfil.header_text"></h3>
+                    <h3 x-text="myPerfil['header_text_'+language]"></h3>
                 </div>
                 <a class="btn-portfolio" href="#bussiness-section"><?=_translate("VER MI PORTAFOLIO")?></a>
             </div>
@@ -181,12 +181,12 @@ function _translate($word){
                     <?=_translate("hello")?>
                 </h2>
                 <div class="description-user ">
-                    <p x-text="myPerfil.description"></p>
+                    <p x-text="myPerfil['description_'+language]"></p>
                 </div>
                 <div  class="footer-user">
                     <ul>
                         <li><i class="fas fa-at"></i><span x-text="myPerfil.email"></span></li>
-                        <li><i class="fas fa-globe-americas"></i> <span x-text="myPerfil.nationality"></span></li>
+                        <li><i class="fas fa-globe-americas"></i> <span x-text="myPerfil['nationality_'+language]"></span></li>
                     </ul>
                     <div class="count-experiences">
                         <!--<p>30+<span><?=_translate("proyectos")?></span></p>
@@ -213,12 +213,12 @@ function _translate($word){
                 <template x-for="myKnowledge in myKnowledges">
                     <div>
                         <div class="item-header ">
-                            <img lazy width="100%" height="100%" class="card-img-top img-circle lazy" :data-src="myKnowledges_section && getImage(myKnowledge.icon_path)" :alt="myKnowledge.title" loading="lazy">
+                            <img lazy width="100%" height="100%" class="card-img-top img-circle lazy" :data-src="myKnowledges_section && getImage(myKnowledge.icon_path)" :alt="myKnowledge['title_'+language]" loading="lazy">
                         </div>
                         <div class="item-content">
-                            <p class="title-item" x-text="myKnowledge.title">
+                            <p class="title-item" x-text="myKnowledge['title_'+language]">
                             </p>
-                            <div x-html="myKnowledge.description">
+                            <div x-html="myKnowledge['description_'+language]">
 
                             </div>
                         </div>
@@ -238,9 +238,9 @@ function _translate($word){
            </div>
            <template x-for="category in portfolioCategories">
                <div class="item-abilities container">
-                   <p class="category-name" x-text="category.title"></p>
+                   <p class="category-name" x-text="category['title_'+language]"></p>
                    <div class="row">
-                       <template x-for="portfolio in category.portfolios">
+                       <template x-for="portfolio in category.Portfolios">
                            <div :class="portfolio.show ? 'btn-tooltip' : 'btn-tooltip '" @click="portfolio.show = !portfolio.show">
                                <img width="100" class="lazy" height="120" lazy :data-src="getImage(portfolio.icon_path)" data-bs-toggle="tooltip" data-bs-placement="top" :title="portfolio.title" :alt="portfolio.title" loading="lazy">
                                <div :class="portfolio.show ? 'tooltip btn-tooltip-close show' : 'tooltip btn-tooltip-close'">
@@ -286,7 +286,7 @@ function _translate($word){
                                 </div>
                                 <div class="modal-body">
                                     <div>
-                                        <p class="name-company" x-text="professionalProject.job"> </p>
+                                        <p class="name-company" x-text="professionalProject['job_'+language]"> </p>
                                         <p class="text-content">
                                             <b><?=_translate("Del")?> </b><span x-text="professionalProject.date_start"></span> <b> <?=_translate("al")?>  </b><span x-text="professionalProject.date_end"></span>
                                         </p>
@@ -294,10 +294,10 @@ function _translate($word){
                                     <div class="text-justify -mt-1">
                                         <div class="list-badges">
                                             <template x-for="portfolio in professionalProject.portfolio">
-                                                <span class="badge rounded-pill outline-badge mt-2"><img lazy class="lazy" :data-src="getImage(portfolio.icon_path)" width="13" height="10" loading="lazy"> <span x-text="portfolio.title_en"></span></span>
+                                                <span class="badge rounded-pill outline-badge mt-2"><img lazy class="lazy" :data-src="getImage(portfolio.icon_path)" width="13" height="10" loading="lazy"> <span x-text="portfolio['title_'+language]"></span></span>
                                             </template>
                                         </div>
-                                        <div class="-mt-2 info-job" x-html="professionalProject.description">
+                                        <div class="-mt-2 info-job" x-html="professionalProject['description_'+language]">
 
                                         </div>
                                     </div>
@@ -356,10 +356,10 @@ function _translate($word){
     <!--footer-->
     <footer id="footer-info">
         <div class="container">
-            <img lazy width="90" class="lazy" height="90" :data-src="getImage(myPerfil.slogan)" alt="Card image cap" loading="lazy">
+            <img lazy width="90" class="lazy" height="90" :data-src="getImage(myPerfil['slogan_'+language])" alt="Card image cap" loading="lazy">
             <div class="-d-flex -justify-content-center" loading="lazy">
                 <template x-for="contact in myContacts">
-                    <a class="btn btn-contact " :title="contact.name" :href="contact.url_path" :aria-label="contact.icon_path" target="_blank" rel="noreferrer noopener">
+                    <a class="btn btn-contact " :title="contact['name_'+language]" :href="contact.url_path" :aria-label="contact.icon_path" target="_blank" rel="noreferrer noopener">
                         <i  :class="contact.icon_path" loading="lazy"></i>
                     </a>
                 </template>
