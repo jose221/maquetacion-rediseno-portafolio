@@ -12,13 +12,13 @@ header{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    @media screen and(max-width: 900px) {
+    @media screen and (max-width: 900px) {
         height: 75vh;
     }
     .row{
         display: grid;
         grid-template-columns: 2fr 1fr;
-        @media screen and(max-width: 900px) {
+        @media screen and (max-width: 900px) {
             height: 100%;
             //margin-top: 2rem;
             grid-template-columns:1fr;
@@ -30,7 +30,7 @@ header{
             justify-content: center;
             width: 100%;
             height: auto;
-            @media screen and(max-width:900px){
+            @media screen and (max-width:900px){
                 display:none;
             }
         }
@@ -84,7 +84,7 @@ header{
         grid-template-columns: 6fr 8fr;
         align-items: center;
         grid-gap: 10px;
-        @media screen and(max-width: 770px) {
+        @media screen and (max-width: 770px) {
             grid-template-columns: 1fr;
         }
         img{
@@ -111,7 +111,7 @@ header{
                 grid-template-columns: 1fr 1fr;
                 grid-gap: 20px;
                 padding-left: 0;
-                @media screen and(max-width: 470px) {
+                @media screen and (max-width: 470px) {
                     grid-template-columns: 1fr;
                 }
                 li{
@@ -172,9 +172,9 @@ header{
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: auto;
         grid-gap: 20px;
-        @media screen and(max-width: 1028px) {
+        @media screen and (max-width: 1028px) {
             grid-template-columns: 1fr 1fr;
-        }@media screen and(max-width: 700px) {
+        }@media screen and (max-width: 700px) {
             grid-template-columns: 1fr;
         }
         >div{
@@ -261,13 +261,13 @@ header{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 20px;
-        @media screen and(max-width: 1061px) {
+        @media screen and (max-width: 1061px) {
             grid-template-columns: 1fr 1fr 1fr 1fr;
         }
-        @media screen and(max-width: 769px) {
+        @media screen and (max-width: 769px) {
             grid-template-columns: 1fr 1fr;
         }
-        @media screen and(max-width: 340px) {
+        @media screen and (max-width: 340px) {
         grid-template-columns: 1fr;
     }
         >div{
@@ -292,12 +292,12 @@ header{
  .row{
      display: grid;
      grid-template-columns: 1fr 1fr;
-     @media screen and(max-width: 900px) {
+     @media screen and (max-width: 900px) {
          grid-template-columns: 1fr;
      }
      >div{
          padding: 10px 20px 10px 20px   ;
-         @media screen and(max-width: 800px) {
+         @media screen and (max-width: 800px) {
              padding-left: 0px;
          }
          input{
@@ -349,7 +349,7 @@ header{
          }
      }
      .c-12{
-        @media screen and(min-width: 800px) {
+        @media screen and (min-width: 800px) {
             grid-column-start: 1;
             grid-column-end: 3;
         }
@@ -404,7 +404,7 @@ section{
     left: -49%;
     margin-top: 10px;
     z-index: 100;
-    @media screen and(max-width: 1000px) {
+    @media screen and (max-width: 1000px) {
         margin-top: 0;
         pointer-events: none;
         z-index: 10000;
@@ -423,7 +423,7 @@ section{
         box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
         border-radius: 5px;
         background-color: $secondary-background-color;
-        @media screen and(max-width: 1000px) {
+        @media screen and (max-width: 1000px) {
             transition: .5s;
             position: absolute;
             height: 0;
@@ -443,7 +443,7 @@ section{
                 display: inline-block;
                 background-color:transparent ;
                 border: none;
-                @media screen and(max-width: 1000px) {
+                @media screen and (max-width: 1000px) {
                     display: none;
                 }
             }
