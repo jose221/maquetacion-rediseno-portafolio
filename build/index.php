@@ -1,5 +1,6 @@
 <?php
 session_start();
+require realpath($_SERVER["DOCUMENT_ROOT"]) . '/src/services/TokenService.php';
 $langs = array('es', 'en');
 $lang = (isset($_GET['lang'])) ? $_GET['lang'] : $_SESSION['lang'];
 if(!in_array($lang, $langs)){
@@ -73,6 +74,9 @@ function _translate($word){
     </script>
 </head>
 <body x-data="myPerfil">
+<pre>
+        <?=json_encode(TokenService::generateToken())?>
+    </pre>
     <!--head-->
     <header id="home-section" x-show="myPerfil" x-transition>
         <nav class="navbar">
