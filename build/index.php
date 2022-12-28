@@ -1,8 +1,9 @@
 <?php
 session_start();
 require realpath($_SERVER["DOCUMENT_ROOT"]) . '/src/services/TokenService.php';
+$token = TokenService::generateToken();
 $langs = array('es', 'en');
-$lang = (isset($_GET['lang'])) ? $_GET['lang'] : $_SESSION['lang'];
+$lang = (isset($_GET['lang'])) ? $_GET['lang'] : ((isset($_SESSION['lang'])) ? $_SESSION['lang']:'es');
 if(!in_array($lang, $langs)){
     $lang = 'es';
 }
@@ -74,9 +75,6 @@ function _translate($word){
     </script>
 </head>
 <body x-data="myPerfil">
-<pre>
-        <?=json_encode(TokenService::generateToken())?>
-    </pre>
     <!--head-->
     <header id="home-section" x-show="myPerfil" x-transition>
         <nav class="navbar">
@@ -431,6 +429,9 @@ function _translate($word){
             </div>
         </div>
     </div>
+    <script>
+        window.token = "<?=$token?>";
+    </script>
     <script src="https://kit.fontawesome.com/2c9fd591be.js" crossorigin="anonymous" async></script>
     <script src="js/globals.min.js?v=1.0.2" async></script>
     <script src="js/index.min.js?v=1.0.2" async></script>

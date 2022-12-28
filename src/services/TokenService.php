@@ -8,6 +8,6 @@ class TokenService{
             "password" => "gonzales220"
         ];
         $token = CurlHelper::post($url,$body);
-        return $token;
+        return $token->data->expired_token;
     }
 }

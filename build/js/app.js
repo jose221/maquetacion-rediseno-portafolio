@@ -10,7 +10,7 @@ const headers = {
     "Content-Type": "application/json",
         "Accept": "application/json",
         "X-Requested-With": "XMLHttpRequest",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ikpvc8OpIMOBbmdlbCBBbHZhcmFkbyBHb256YWxleiIsImVtYWlsIjoiam9zZS5hbHZhcmFkbzIyMEBob3RtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJEdkL2NISUpPL280LmVWc0ZLdUpoSE8ubjlmRmRwNlpFR1VjWVA4ZGtrRzVKbHdVYzdEV01TIiwiZXhwaXJlZF90b2tlbiI6MTY3MTIyNjc3ODcyOCwiaWF0IjoxNjcxMTQwMzc4fQ.K6A3pXkm2LOM3itZzZC7nREA5gkwG4kMiBV5oTJjGcs"
+        "auth-token": window.token
 }
 const urlApi="http://localhost:8080";
 //const urlApi="https://admin.herandro.com.mx";
