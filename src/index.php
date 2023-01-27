@@ -1,6 +1,6 @@
 <?php
 session_start();
-require realpath($_SERVER["DOCUMENT_ROOT"]) . '/src/services/TokenService.php';
+require realpath($_SERVER["DOCUMENT_ROOT"]) . '/services/TokenService.php';
 $token = TokenService::generateToken();
 $langs = array('es', 'en');
 $lang = (isset($_GET['lang'])) ? $_GET['lang'] : ((isset($_SESSION['lang'])) ? $_SESSION['lang']:'es');
