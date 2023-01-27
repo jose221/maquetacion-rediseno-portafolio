@@ -12,7 +12,7 @@ const headers = {
         "X-Requested-With": "XMLHttpRequest",
         "auth-token": window.token
 }
-const urlApi="http://localhost:8080";
+const urlApi="https://api.herandro.tech";
 //const urlApi="https://admin.herandro.com.mx";
 let lang = document.querySelector("html").getAttribute("lang");
 let data = getData();
@@ -53,7 +53,7 @@ document.addEventListener('alpine:init',   () => {
             }
             saveData(data);
             this.myContacts = res2.data;
-            this.myPerfil = res.data;
+            this.myPerfil = res.data[0];
             console.log(this.myPerfil)
             createLazy();
             this.$nextTick(() => {
