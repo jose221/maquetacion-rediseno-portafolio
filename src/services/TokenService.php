@@ -1,5 +1,5 @@
 <?php
-require realpath($_SERVER["DOCUMENT_ROOT"]) . '/src/helpers/CurlHelper.php';
+require realpath("../")."/src/helpers/CurlHelper.php";
 class TokenService{
     public static function generateToken(){
         $url = "https://api.herandro.tech/api/admin/get-token";
