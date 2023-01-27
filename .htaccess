@@ -30,5 +30,5 @@ ExpiresDefault "access 2 days"
       	RewriteCond %{REQUEST_FILENAME} !-f
       	RewriteCond %{REQUEST_FILENAME} !-d
 
-      	Redirect /index.php /src/index.php
+      	#Redirect /index.php /src/index.php
 </IfModule>
