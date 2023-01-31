@@ -53,7 +53,7 @@ document.addEventListener('alpine:init',   () => {
             }
             saveData(data);
             this.myContacts = res2.data;
-            this.myPerfil = res.data[0];
+            this.myPerfil = res.data;
             console.log(this.myPerfil)
             createLazy();
             this.$nextTick(() => {
