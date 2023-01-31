@@ -54,7 +54,7 @@ document.addEventListener('alpine:init',   () => {
             saveData(data);
             this.myContacts = res2.data;
             this.myPerfil = res.data;
-            console.log(this.myPerfil)
+            console.log(res)
             createLazy();
             this.$nextTick(() => {
                 console.timeEnd('Timer')
