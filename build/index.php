@@ -183,7 +183,7 @@ function _translate($word){
                     <?=_translate("hello")?>
                 </h2>
                 <div class="description-user ">
-                    <p x-text="myPerfil['description_'+language]"></p>
+                    <p x-html="myPerfil['description_'+language]"></p>
                 </div>
                 <div  class="footer-user">
                     <ul>
