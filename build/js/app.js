@@ -238,14 +238,14 @@ document.querySelector("#contact-form").addEventListener("submit", function (e){
     if(validation.isValid()){
        {
            let httpClient = new HttpClient({
-               baseURL:urlApi+'/api/',
+               baseURL:urlApi+'/api/admin/',
                headers: headers
            });
-           httpClient.post(`messages/send/${lang}`, body).then(function (res){
+           httpClient.post(`messages`, body).then(function (res){
                if( (res.status == 201)){
-                   Alert.success(res.message,1500)
+                   Alert.success((lang == 'es') ? "Mensaje enviado exitosamente" : "Message sended successfull",1500)
                }else{
-                   Alert.error(res.message,1500)
+                   Alert.error((lang == 'es') ? "Hubo un error al enviar el mensaje" : "the message send has error",1500)
                }
            })
         }

@@ -1,5 +1,5 @@
 <?php
-$files = glob('data/*'); //obtenemos todos los nombres de los ficheros
+$files = glob(realpath("").'/data/*'); //obtenemos todos los nombres de los ficheros
 foreach($files as $file){
     echo basename($file)."</br> </br>";
     if(is_file($file))

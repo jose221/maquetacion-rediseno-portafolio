@@ -6,7 +6,7 @@ $_POST = json_decode($postBody, true);
 function getData($url){
     try {
         //widgets_manifest
-        if (($data = @file_get_contents("data/".base64_encode($url).".json")) === false) {
+        if (($data = @file_get_contents(realpath("")."/data/".base64_encode($url).".json")) === false) {
             $error = error_get_last();
             $data = [];
         } else {

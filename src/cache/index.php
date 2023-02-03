@@ -28,7 +28,7 @@ function createArchive($nombre, $body){
 
 // encode array to json
     $json = json_encode($body);
-    $bytes = file_put_contents("data/".base64_encode($nombre).".json", $json);
+    $bytes = file_put_contents(realpath("")."/data/".base64_encode($nombre).".json", $json);
 }
 createArchive($_POST['url'], $_POST);
 $response = [

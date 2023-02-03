@@ -38,7 +38,7 @@ function _translate($word){
     <link rel="shortcut icon" href="img/logo.png" />
     <link rel="manifest" href="manifest.json">
     <meta property="og:image:height" content="1330">
-    <meta property="og:url" content="https://jose.alvarado.herandro.com.mx/">
+    <meta property="og:url" content="https://josealvarado.herandro.tech/">
     <meta property="og:site_name" content="José Ángel">
     <meta property="og:type" content="website">
     <link rel="shortcut icon" href="img/logo.png" />
@@ -55,7 +55,7 @@ function _translate($word){
             "@type": "person",
             "name": "José Angel Alvarado Gonzalez",
             "jobTitle": "Cross-Platform Application Developer",
-            "url": "https://jose.alvarado.herandro.com.mx/",
+            "url": "https://josealvarado.herandro.tech/",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Cancún",
@@ -69,7 +69,7 @@ function _translate($word){
             "sameAs": [
                 "https://web.facebook.com/joseangel.alvarado.735507",
                 "https://www.linkedin.com/in/jos%C3%A9-%C3%A1ngel-alvarado-gonzalez-677841220",
-                "https://jose.alvarado.herandro.com.mx/"
+                "https://josealvarado.herandro.tech/"
             ]
         }
     </script>
