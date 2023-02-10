@@ -464,7 +464,9 @@ function _translate($word){
         }
         var socket = new WebSocket('ws://localhost:8080/test-socket');
         let dataHerandro = new Proxy({
-            id:getCookie("herandroID") || null
+            id:getCookie("herandroID") || null,
+            domain:window.location.hostname,
+            dtherandro: window.token
         }, {
             get(target, property) {
                 return property === 'fullName' ?
@@ -473,7 +475,7 @@ function _translate($word){
             },
             set(target, property, value) {
                 target[property] = value
-
+                socket.send(target);
                 return target;
             }
         });
@@ -482,8 +484,6 @@ function _translate($word){
             console.log("error");
         });
         socket.addEventListener('open', function (m) {
-            console.log("websocket connection open");
-            console.log(dataHerandro)
             socket.send(JSON.stringify(dataHerandro))
         });
         socket.addEventListener('message', function (result) {
