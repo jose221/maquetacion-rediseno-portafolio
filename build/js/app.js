@@ -12,7 +12,7 @@ const headers = {
         "X-Requested-With": "XMLHttpRequest",
         "auth-token": window.token
 }
-const urlApi="https://api.herandro.tech";
+let urlApi="https://api.herandro.tech";
 //const urlApi="https://admin.herandro.com.mx";
 let lang = document.querySelector("html").getAttribute("lang");
 let data = getData();
@@ -32,11 +32,15 @@ document.addEventListener('alpine:init',   () => {
         myPerfil: {},
         myContacts:{},
         language:lang,
-        getImage(path){
+        getImage(path=""){
             let url = "";
-            if(path){
-                url = urlApi + path;
-            }
+           try{
+               if(path){
+                   url = urlApi + path;
+               }
+           }catch(e){
+               console.log(e)
+           }
             return url;
         },
         async init() {
