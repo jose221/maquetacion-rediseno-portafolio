@@ -446,8 +446,8 @@ function _translate($word){
           //  [{"id":1,"code":"lenguajes_programacion","title":"Lenguajes de Programaci\u00f3n","description":"Lenguajes de Programaci\u00f3n","portfolios":[{"id":1,"code":"javascript","icon_path":"\/storage\/b0yNHu68FP5WyEcjf61e596fFSfychw0ZQHgvhws.svg","title":"JavaScript","description":"Conocimiento de javascript","years_experience":2,"knowledge_level":null},{"id":2,"code":"php","icon_path":"\/storage\/eJrvIIjhts9bIrBgj98Suw5kwudBiUaJpdlGaYD8.svg","title":"PHP","description":"PHP","years_experience":3,"knowledge_level":null},{"id":3,"code":"kotlin","icon_path":"\/storage\/8R9VOgwZVofJIJEQXOyuA6q9Jwh1GBLjseVZDEre.svg","title":"kotlin","description":"kotlin","years_experience":1,"knowledge_level":null},{"id":4,"code":"java","icon_path":"\/storage\/sz4y6nrWNehRIiyjBxl3YNBoh0DFhUHorjiQzSQI.svg","title":"Java","description":"java","years_experience":null,"knowledge_level":null},{"id":5,"code":"python","icon_path":"\/storage\/F6hANVCjBkvpNrgZIxcFIAgeS770Pw9KZow7y2fH.svg","title":"Python","description":"eqwe","years_experience":1,"knowledge_level":50},{"id":6,"code":"TypeScript","icon_path":"\/storage\/8vjKP2pDftubTisvAqCMFRbt4nRWNKcNKDJZ0rUs.svg","title":"TypeScript","description":"TypeScript","years_experience":3,"knowledge_level":null}]},{"id":2,"code":"frameworks","title":"Frameworks","description":"Frameworks","portfolios":[{"id":7,"code":"Angular","icon_path":"\/storage\/YbjE8InSN5g5lUtVuamVGJuzbAzNLpjm6hLwRWQN.svg","title":"Angular","description":"Angular","years_experience":3,"knowledge_level":50},{"id":8,"code":"Laravel","icon_path":"\/storage\/9VcCyi1DP0GpWReFncHT3sYI8Gs5mHgbvnt8Qbor.svg","title":"Laravel","description":"Laravel","years_experience":3,"knowledge_level":50},{"id":9,"code":"Android","icon_path":"\/storage\/g2OFwWSPeQpM8kbu42h93WntQ6eVXwVGwO0o1Ery.svg","title":"Android","description":"Android","years_experience":1,"knowledge_level":null},{"id":10,"code":"Vue","icon_path":"\/storage\/bKmb91V3ExdP0BROrD0nSWSLh2bslOGQFIrIh0AX.svg","title":"Vue","description":"Vue","years_experience":2,"knowledge_level":60},{"id":11,"code":"Node JS","icon_path":"\/storage\/qbqr20WrYSwaQKZvYT6ZlTeNdYTOjCRcfvp9EYnT.svg","title":"Node JS","description":"Node JS","years_experience":1,"knowledge_level":null},{"id":29,"code":"Ionic","icon_path":"\/storage\/eXb6KC63m6iqbPDPMGNDJ7XzteoP4TV8ofPR3s2X.svg","title":"Ionic","description":"Ionic","years_experience":3,"knowledge_level":null},{"id":30,"code":"Yii PHP","icon_path":"\/storage\/zlj2ghdTlHvkNAggbyeJJuL1OVgpkU5ewUbirhGh.svg","title":"Yii PHP","description":"Yii PHP","years_experience":1,"knowledge_level":null},{"id":31,"code":"Nest JS","icon_path":"\/storage\/3koezjisO4GogPzsHj7HAeWRo0PfQ8emDxYa1CZW.svg","title":"Nest JS","description":"Nest JS","years_experience":1,"knowledge_level":null},{"id":32,"code":"CodeIgniter PHP","icon_path":"\/storage\/lqMgfx7qaoOVA1LVX8PHO7LvDfcwiHTdHUEUQUoj.svg","title":"CodeIgniter","description":"CodeIgniter","years_experience":1,"knowledge_level":50}]},{"id":3,"code":"frameworks CSS","title":"frameworks CSS","description":"frameworks CSS","portfolios":[{"id":12,"code":"bootstrap","icon_path":"\/storage\/DvoWIGHbe0N2nFoigeevZJsbwUAQ5Q2bat9DjjRJ.svg","title":"Bootstrap","description":"Bootstrap","years_experience":4,"knowledge_level":100},{"id":13,"code":"material design","icon_path":"\/storage\/ghRlnOLqjLmECtfUcHho8v2PqvOBlD9T9gaTJaKh.svg","title":"Material Design","description":"Material Design","years_experience":2,"knowledge_level":50}]},{"id":4,"code":"herramientas","title":"Herramientas y librer\u00edas","description":"Herramientas y librer\u00edas","portfolios":[{"id":14,"code":"Adobe Illustrator","icon_path":"\/storage\/sQyDE9pU4EhWBUDNDZh2MPNBFToBIqy8eTP7r0hy.svg","title":"Adobe Illustrator","description":"Adobe Illustrator","years_experience":1,"knowledge_level":null},{"id":15,"code":"Adobe Photoshop","icon_path":"\/storage\/lr0LGePGmJvoKrDNPNo0Kj1EZWqarPEeeLNG6EJB.svg","title":"Adobe Photoshop","description":"Adobe Photoshop","years_experience":1,"knowledge_level":50},{"id":16,"code":"GitHub","icon_path":"\/storage\/c3KdWxSaVdHNIQmIGPeyFRlczSFAHCUgNP9DbnQV.svg","title":"GitHub","description":"GitHub","years_experience":3,"knowledge_level":null},{"id":17,"code":"GitLab","icon_path":"\/storage\/h1J2eBG3HWFeqcMB56mNHxAgiNI8GNtTCohaL9uB.svg","title":"GitLab","description":"GitLab","years_experience":3,"knowledge_level":50},{"id":18,"code":"IntelliJ IDEA","icon_path":"\/storage\/Lh8Rm59cHrh7yTFia77kqd9uzWoRatlpxmdKmTfp.svg","title":"IntelliJ IDEA","description":"IntelliJ IDEA","years_experience":2,"knowledge_level":50},{"id":19,"code":"Eclipse","icon_path":"\/storage\/3YrgfPDgCnoi4sGOhYfg0GT512yJun6HjcZGd7bW.svg","title":"Eclipse","description":"Eclipse","years_experience":3,"knowledge_level":null},{"id":21,"code":"Visual Studio Code","icon_path":"\/storage\/Gm7p5MDHkiMftk4mMH5B67c71ha61N4zye7BwnW4.svg","title":"Visual Studio Code","description":"Visual Studio Code","years_experience":3,"knowledge_level":50},{"id":22,"code":"Microsoft Visual Studio","icon_path":"\/storage\/OmY1KSGKyKc420pCrIO0RFfYHKNwRVRb60SIMz3Y.svg","title":"Microsoft Visual Studio","description":"Microsoft Visual Studio","years_experience":1,"knowledge_level":50},{"id":23,"code":"Adobe XD","icon_path":"\/storage\/wmoQqMlogLW3DtJCBwnsoYve9ZEemhWYOU9dy7Yk.svg","title":"Adobe XD","description":"Adobe XD","years_experience":3,"knowledge_level":50},{"id":34,"code":"vuex","icon_path":"\/storage\/ZjGTO6YQd8ojn6UjqBTLLCWuhuoY2tKN0U3s9elw.svg","title":"Vuex(Redux)","description":"knowledge with the Vue js library","years_experience":1,"knowledge_level":50},{"id":35,"code":"ngrx","icon_path":"\/storage\/3nYxRSm97uoD7UH0vcdfMow3fPEKdOIk23NJQR57.svg","title":"NgRx(Redux)","description":"knowledge with the NgRx library","years_experience":2,"knowledge_level":null},{"id":36,"code":"gulpjs","icon_path":"\/storage\/qNVKORp8aHjJn8R55Cf4ZLOm5bWxpiNsQk3KLAmy.svg","title":"Gulp js","description":"knowledge with the Gulp js library","years_experience":2,"knowledge_level":50},{"id":37,"code":"scss","icon_path":"\/storage\/JMzgXnAzGC9ugkt6xtQ6DfcAroHbh5si42SoXKpp.svg","title":"Sass(Scss)","description":"High knowledge in layout with Sass","years_experience":4,"knowledge_level":null}]},{"id":5,"code":"Base de datos","title":"Base de Datos","description":"Base de Datos","portfolios":[{"id":24,"code":"MySQL","icon_path":"\/storage\/NsREmgDDjCGgyhqt2gqOakltYGn2ROy7s4xZrW1T.svg","title":"MySQL","description":"MySQL","years_experience":4,"knowledge_level":50},{"id":25,"code":"Mongo DB","icon_path":"\/storage\/rWdPwFMsrXfK3t4NZG5KHIn4o42s8juRxeSAEJ7K.svg","title":"Mongo DB","description":"Mongo DB","years_experience":2,"knowledge_level":50},{"id":26,"code":"Firebase","icon_path":"\/storage\/Rtqim7sHu8WW6G3VXNEdqTvoWUrobPa7ojnuf8Iu.svg","title":"Firebase","description":"Firebase","years_experience":3,"knowledge_level":50},{"id":27,"code":"PostgreSQL","icon_path":"\/storage\/78wzxvxFvBpuGwLbw6QKJG0lRt8dPTzFwr9XzxhX.svg","title":"PostgreSQL","description":"PostgreSQL","years_experience":1,"knowledge_level":50},{"id":28,"code":"SQL Server","icon_path":"\/storage\/cy8zePNKaFHxnkS23qLq33LIhhSnvpTAcTnDRkm2.svg","title":"SQL Server","description":"SQL Server","years_experience":3,"knowledge_level":null}]}]);
     </script>
     <script>
-        //const urlApi1="localhost:8080";
-        let urlApi1="api.herandro.tech";
+        let urlApi1="http://localhost:8080";
+        //let urlApi1="https://api.herandro.tech";
         function setCookie(cName, cValue, expDays=7) {
             let date = new Date();
             date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
@@ -464,9 +464,21 @@ function _translate($word){
             })
             return res;
         }
-        var socket = new WebSocket('ws://'+urlApi1+'/test-socket');
+        //var socket = new WebSocket('ws://'+urlApi1+'/test-socket');
+        actionDataHerandro = async (target)=>{
+            res = await fetch(`${urlApi1}/api/data-herandro`, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application.json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(target),
+                //Cache: 'default'
+            })
+            return  await res.json();
+        }
         let dataHerandro = new Proxy({
-            id:getCookie("herandroID") || null,
+            uid:getCookie("herandroID") || null,
             domain:window.location.hostname,
             dtherandro: window.token
         }, {
@@ -477,11 +489,22 @@ function _translate($word){
             },
             set(target, property, value) {
                 target[property] = value
-                socket.send(target);
+                actionDataHerandro(target)
+                //socket.send(target);
+
                 return target;
             }
         });
 
+        if(!dataHerandro.uid){
+
+            actionDataHerandro(dataHerandro).then(async (response) => {
+                dataHerandro = response;
+                console.log(dataHerandro)
+            })
+        }
+
+        /**
         socket.addEventListener('error', function (m) {
             console.log("error");
         });
@@ -497,6 +520,8 @@ function _translate($word){
             dataHerandro = result;
             console.log(dataHerandro)
         });
+         **/
+        console.log(dataHerandro)
     </script>
 </body>
 </html>
