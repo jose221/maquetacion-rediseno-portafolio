@@ -13,7 +13,8 @@ const headers = {
         "auth-token": window.token
 }
 let urlApi="https://api.herandro.tech";
-//const urlApi="https://admin.herandro.com.mx";
+//let urlApi="http://localhost:8080";
+
 let lang = document.querySelector("html").getAttribute("lang");
 let data = getData();
 //fuargar en localstorage function
