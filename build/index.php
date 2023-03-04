@@ -16,6 +16,9 @@ function _translate($word){
 <!DOCTYPE html>
 <html lang="<?=$lang?>">
 <head>
+    <script>
+        window.token = "<?=$token?>";
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -533,9 +536,6 @@ function _translate($word){
             </div>
         </div>
     </div>
-    <script>
-        window.token = "<?=$token?>";
-    </script>
     <script src="https://kit.fontawesome.com/2c9fd591be.js" crossorigin="anonymous" async></script>
     <script src="js/globals.min.js?v=1.0.2" async></script>
     <script src="js/index.min.js?v=1.0.2" async></script>
