@@ -303,7 +303,7 @@ function _translate($word){
 
                     </div>
                     <div class="action-footer-user">
-                        <a class="btn-portfolio " target="_blank" rel="noreferrer noopener" :href="getImage(myPerfil.HistoryCurriculumVitae.path)"> <?=_translate("ver curriculum")?> </a>
+                        <a class="btn-portfolio " target="_blank" rel="noreferrer noopener" :href="getImage(myPerfil.HistoryCurriculumVitae?.path)"> <?=_translate("ver curriculum")?> </a>
                     </div>
                 </div>
             </div>
