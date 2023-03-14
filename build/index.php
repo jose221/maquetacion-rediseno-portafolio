@@ -52,8 +52,8 @@ function _translate($word){
     <!--links-->
 
     <script>
-        //let urlApi1="http://localhost:8080";
-        let urlApi1="https://api.herandro.tech";
+        let urlApi1="http://localhost:8080";
+        //let urlApi1="https://api.herandro.tech";
         function setCookie(cName, cValue, expDays=7) {
             let date = new Date();
             date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
@@ -336,7 +336,7 @@ function _translate($word){
             </div>
         </div>
     </section>
-    <button alt="language" herandro-click="CHANGE_LANGUAGE_EVENT" herandro-label="Cambió de idioma" herandro-value="<?=$lang?>" class="translate-btn">213123123312</button>
+    <button alt="language" herandro-click="DATA_EXPORT_ACTION" herandro-label="Cambió de idioma" herandro-value="<?=$lang?>" class="translate-btn">213123123312</button>
     <!--end section my knowledges-->
     <!--section my abilities-->
     <section id="abilities-section" class="abilities-user-section container" x-intersect.once="getPortfolioCategories()" >
