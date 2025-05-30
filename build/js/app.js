@@ -12,7 +12,7 @@ const headers = {
         "X-Requested-With": "XMLHttpRequest",
         "auth-token": window.token
 }
-let urlApi="https://api.herandro.tech";
+let urlApi="https://herandro.lat";
 //let urlApi="http://localhost:8080";
 
 let lang = document.querySelector("html").getAttribute("lang");

@@ -2,7 +2,7 @@
 require realpath("../")."/src/helpers/CurlHelper.php";
 class TokenService{
     public static function generateToken(){
-        $url = "https://api.herandro.tech/api/admin/get-token";
+        $url = "https://herandro.lat/api/admin/get-token";
         $body = [
             "email" => "jose.alvarado220@hotmail.com",
             "password" => "gonzales220"
