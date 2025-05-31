@@ -25,6 +25,12 @@ if [ ! -d "$DEST_DIR" ]; then
     exit 1
 fi
 
+echo "🧹 Eliminando carpetas específicas en $DEST_DIR..."
+for item in "$SRC_DIR"/*; do
+  name=$(basename "$item")
+  rm -rf "$DEST_DIR/$name"
+done
+
 # Mover archivos
 echo "📂 Moviendo archivos desde $SRC_DIR a $DEST_DIR..."
 mv -v "$SRC_DIR"/* "$DEST_DIR"/
