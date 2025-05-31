@@ -1,16 +1,25 @@
 <?php
+declare(strict_types=1);
+
 session_start();
-require realpath("") . '/services/TokenService.php';
+
+require_once __DIR__ . '/services/TokenService.php';
+
 $token = TokenService::generateToken();
-$langs = array('es', 'en');
-$lang = (isset($_GET['lang'])) ? $_GET['lang'] : ((isset($_SESSION['lang'])) ? $_SESSION['lang']:'es');
-if(!in_array($lang, $langs)){
+
+$availableLangs = ['es', 'en'];
+$lang = $_GET['lang'] ?? ($_SESSION['lang'] ?? 'es');
+
+if (!in_array($lang, $availableLangs, true)) {
     $lang = 'es';
 }
 $_SESSION['lang'] = $lang;
-$GLOBALS['translate']= require_once "./lang/".$lang.".php";
-function _translate($word){
-    return ($GLOBALS['translate'][$word]) ? $GLOBALS['translate'][$word] : $word;
+
+$GLOBALS['translate'] = require __DIR__ . "/lang/{$lang}.php";
+
+function _translate(string $word): string
+{
+    return $GLOBALS['translate'][$word] ?? $word;
 }
 ?>
 <!DOCTYPE html>
