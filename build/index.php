@@ -41,7 +41,7 @@ function _translate($word){
     <link rel="shortcut icon" href="img/logo.png" />
     <link rel="manifest" href="manifest.json">
     <meta property="og:image:height" content="1330">
-    <meta property="og:url" content="https://josealvarado.herandro.tech/">
+    <meta property="og:url" content="https://josealvarado.herandro.lat/">
     <meta property="og:site_name" content="José Ángel">
     <meta property="og:type" content="website">
     <link rel="shortcut icon" href="img/logo.png" />
@@ -53,7 +53,7 @@ function _translate($word){
 
     <script>
         //let urlApi1="http://localhost:8080";
-        let urlApi1="https://herandro.lat";
+        let urlApi1="http://api.herandro.lat";
         function setCookie(cName, cValue, expDays=7) {
             let date = new Date();
             date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
@@ -161,7 +161,7 @@ function _translate($word){
             "@type": "person",
             "name": "José Angel Alvarado Gonzalez",
             "jobTitle": "Cross-Platform Application Developer",
-            "url": "https://josealvarado.herandro.tech/",
+            "url": "https://josealvarado.herandro.lat/",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Cancún",
@@ -175,7 +175,7 @@ function _translate($word){
             "sameAs": [
                 "https://web.facebook.com/joseangel.alvarado.735507",
                 "https://www.linkedin.com/in/jos%C3%A9-%C3%A1ngel-alvarado-gonzalez-677841220",
-                "https://josealvarado.herandro.tech/"
+                "https://josealvarado.herandro.lat/"
             ]
         }
     </script>
