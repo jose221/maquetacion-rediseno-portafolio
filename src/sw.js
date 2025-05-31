@@ -5,7 +5,6 @@ var appShellFiles = [
     './css/index.min.css',
     './js/globals.min.js',
     './js/index.min.js',
-    'https://kit.fontawesome.com/2c9fd591be.js',
     'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,200;1,700&amp;display=swap',
 ];
 async function addCache(url, data){

@@ -62,7 +62,7 @@ function _translate(string $word): string
 
     <script>
         //let urlApi1="http://localhost:8080";
-        let urlApi1="http://api.herandro.lat";
+        let urlApi1="https://api.herandro.lat";
         function setCookie(cName, cValue, expDays=7) {
             let date = new Date();
             date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
