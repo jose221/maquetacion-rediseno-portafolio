@@ -1,5 +1,5 @@
 <?php
-require realpath("../")."/src/helpers/CurlHelper.php";
+require_once __DIR__ . '/../helpers/CurlHelper.php';
 
 class TokenService {
     public static function generateToken() {
