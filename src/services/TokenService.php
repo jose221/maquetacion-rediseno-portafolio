@@ -3,30 +3,9 @@ require_once __DIR__ . '/../helpers/CurlHelper.php';
 
 class TokenService {
     public static function generateToken() {
-        $url = "https://api.herandro.lat/api/admin/get-token";
-        $body = [
-            "email" => "jose.alvarado220@hotmail.com",
-            "password" => "gonzales220"
-        ];
+        //$token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2RlIjoiIGRldmVsb3BtZW50IiwiZG9tYWluIjoiIGh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCIsInVzZXJfaWQiOiIxIiwiaWF0IjoxNzUwNjQ5NDExfQ.T8MFbldCdISAfdB2HMNgfkZrXAdKhGQWE9avrH5udxA";
+        $token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2RlIjoiIHByb2R1Y3Rpb24iLCJkb21haW4iOiIgaHR0cHM6Ly93d3cuaGVyYW5kcm8ubGF0IiwidXNlcl9pZCI6IjEiLCJpYXQiOjE3NTA2NDk0MzF9.-VtKhQXgVXhzIT1WzKSKv8OaU3Zx_UQYQsABhhl0cxg";
 
-        $token = CurlHelper::post($url, $body);
-
-        // Validar si hubo error
-        if (!is_object($token)) {
-            error_log("❌ CurlHelper::post devolvió null o una respuesta no válida.");
-            return null;
-        }
-
-        if (!isset($token->data)) {
-            error_log("❌ La respuesta no contiene 'data'. Respuesta: " . json_encode($token));
-            return null;
-        }
-
-        if (!isset($token->data->expired_token)) {
-            error_log("❌ 'expired_token' no existe en la respuesta.");
-            return null;
-        }
-
-        return $token->data->expired_token;
+        return $token;
     }
 }
