@@ -45,7 +45,8 @@ function _translate(string $word): string
                 method: 'POST',
                 headers: {
                     Accept: 'application.json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    "auth-token": window.token
                 },
                 body: JSON.stringify(target),
                 //Cache: 'default'

@@ -61,7 +61,7 @@ self.addEventListener('fetch', function(event) {
             })
         );
     }**/
-    if(request.url.includes("/api/myportfolio")){
+    if(request.url.includes("/api/my-portfolio")){
         console.log(request.url)
         event.respondWith(
 
